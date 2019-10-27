@@ -4,15 +4,11 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am a researcher interested in making agents more like humans, mainly using Reinforcement Learning and Deep Learning. 
+Even though I know that Deep Learning allows for a large number and know that there are many different fields, the blog will mainly raise Reinforcment Learning.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Since there was a limit to learning alone, I was proceeding with Udacity's Deep Learning Nanodegree course and was able to graduate safely. This lecture was the best lecture I had heard, so I am very excited that I have completed the whole process.
+<img src="assets/udacity_certificate.png" width="600">
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+However, since the content of the lecture was not big and deep, I have been directly researching focusing on Reinforcement Learning after graduation, and now it seems that I have achieved the Tensorflow model to the level of creation without any problems.
 
-
-[jekyll-organization]: https://github.com/jekyll
