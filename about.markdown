@@ -1,8 +1,4 @@
----
-layout: page
-title: About
-permalink: /about/
----
+[![DL Mario](http://i3.ytimg.com/vi/qv6UVOQ0F44/hqdefault.jpg)](https://www.youtube.com/watch?v=qv6UVOQ0F44 "Deep Learning Mario Play - Click to Watch!")
 
 I am a researcher interested in making agents more like humans, mainly using Reinforcement Learning and Deep Learning. 
 Even though I know that Deep Learning allows for a large number and know that there are many different fields, the blog will mainly raise Reinforcment Learning.
