@@ -21,11 +21,11 @@
 title: kimbring2 blog
 email: kimbring2@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is a site opened for detailed explanation of the code uploaded to Github.
+  This site is for explanation of the code uploaded at my Github repo.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: kimbring2
+github_username:  kimbring2
 
 # Build settings
 theme: minima
