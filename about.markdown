@@ -1,6 +1,6 @@
 # Blog Introduction
 I am a researcher interested in making agents more like humans, mainly using Reinforcement Learning and Deep Learning. 
-Even though I know that Deep Learning allows for a large number and there are many different fields, the blog will mainly raise Reinforcment Learning.
+Even though I know that Deep Learning allows computer do many task like a human and there are many different fields related with it, the blog will mainly raise Reinforcment Learning.
 
 # Why I began to be interested in this
 Before I got into deep running, I accidentally used a neural network to download the code to play Mario, and trained it during the day. I didn't know much about Deep Learning, so I was surprised to see how agent played the whole stage like a person.
