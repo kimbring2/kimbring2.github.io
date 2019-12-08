@@ -21,7 +21,7 @@
 title: kimbring2 blog
 email: kimbring2@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This site is for explanation of the code uploaded at my Github repo.
+  This site is for explanation of my Github code.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: kimbring2
