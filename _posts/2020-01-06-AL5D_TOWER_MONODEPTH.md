@@ -5,7 +5,7 @@ The aim of this project is to try a tower stacking game using Lynxmotion's AL5D 
 
 The robot arm use a general USB Webcam to ascertain information such as the position, color and distance of blocks and dice. Also, I use Monocular depth estimation method to ascertain distance.
 
-<img src="/assets/monodepth_example_1.gif" width="800">
+<img src="/assets/al5d/monodepth_example_1.gif" width="800">
 
 # Table of Contents
 1. [INTRODUCTION](#introduction)
