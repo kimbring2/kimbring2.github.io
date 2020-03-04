@@ -1,18 +1,19 @@
 # Blog Introduction
-I am a researcher interested in making agents more like humans, mainly using Reinforcement Learning and Deep Learning. 
-Even though I know that Deep Learning allows computer do many task like a human and there are many different fields related with it, the blog will mainly raise Reinforcment Learning.
+I am a researcher interested in making agent acts like a humans by using Deep Learning. There are various field in that, I mainly studying a Reinforcment Learning.
 
 # Why I began to be interested in this
-Before I got into deep running, I accidentally used a neural network to download the code to play Mario, and trained it during the day. I didn't know much about Deep Learning, so I was surprised to see how agent played the whole stage like a person.
+Before I got into Deep Running, I found one project about Deep Reinforcement Learning for playing Mario game. I trained it during one day. At that time, I was really surprised to see agent can finish one stage like a human.
 
 [![DL Mario](http://i3.ytimg.com/vi/qv6UVOQ0F44/hqdefault.jpg)](https://www.youtube.com/watch?v=qv6UVOQ0F44 "Deep Learning Mario Play - Click to Watch!")
 
-Knowing that the code that played Mario is primarily based on Reinforcement learning and the Neural Network, I began to study that area.
+After then, I began to study Reinforcement Learning for knowing deepy about it.
 
-# Degree information
-
-Since there was a limit to learning alone, I was proceeding with Udacity's Deep Learning Nanodegree course and was able to graduate safely. This lecture was the best lecture I had heard, so I am very excited that I have completed the whole process.
+# Certification Infomation
+For improving my knowledge Deep Learning, I taken Deep Learning Nanodegree course which was the best lecture in my life.
 
 <img src="assets/udacity_certificate.png" width="600">
 
-However, since the content of the lecture was not big and deep, I have been directly researching focusing on Reinforcement Learning after graduation, and now it seems that I have achieved the Tensorflow model to the level of creation without any problems.
+Futhermore, I have the following Deep Learning related cerification:
+
+<img src="assets/sagemaker_certification.png" width="600">
+<img src="assets/deep_racer_certification.png" width="600">
