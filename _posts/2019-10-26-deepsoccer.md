@@ -5,7 +5,7 @@ To overcome these difficulties, people first create a simulation that looks exac
 
 In this post, I'll try to confirm these methods are actually working. The test uses a robot called Jetbot that has a GPU on its main board. And the environment is a soccer that is familiar to many people.
 
-Code for that post can be found on the Github [Jetbot Soccer Github](https://github.com/kimbring2/jetbot_soccer).
+Code for that post can be found on the Github [DeepSoccer Github](https://github.com/kimbring2/DeepSoccer).
 
 All the products used in the tests are inexpensive and can be purchased in Amazon. Thus, you can easily try to reproduce them.
 
