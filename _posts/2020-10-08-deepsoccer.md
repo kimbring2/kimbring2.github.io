@@ -125,7 +125,7 @@ After a 250v 1000uf capacitor and a ±45V-390V capacitor charger are added, a so
 
 Because the wheel and roller part have all simple structure, they can be implemented using the default controller of Gazebo. However. the solenoid part need a custom controller since it has spring part. You can find a official tutorial for that at http://gazebosim.org/tutorials?tut=guided_i5&cat=. 
 
-<img src="/image/Spring-Constant.jpg" width="600">
+<img src="/assets/Spring-Constant.jpg" width="600">
 
 ```
 namespace gazebo
