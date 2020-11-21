@@ -10,22 +10,22 @@ Code for that post can be found on the [DeepSoccer Github](https://github.com/ki
 All the products used in the tests are inexpensive and can be purchased in Amazon. Thus, you can easily try to reproduce them.
 
 # Table of Contents
-1. [Soccer robot design](#soccer_robot_design)
-    1. [Soccer robot design(Wheel)](#soccer_robot_design_wheel)
-    2. [Soccer robot design(Solenoid)](#soccer_robot_design_solenoid)
-    3. [Soccer robot design(Lidar)](#soccer_robot_design_lidar)
-    4. [Soccer robot design(Infrared)](#soccer_robot_design_infrared)
-    5. [Soccer robot design(Integration)](#soccer_robot_design_integration)
-    6. [Soccer robot design(Teleoperation)](#soccer_robot_design_teleoperation)
-2. [Reinforcement Learning test](#rl_test)
-    1. [Network structure](#rl_network_structure)
-    2. [Reward setting](#rl_reward_setting)
-    3. [Training result](#rl_training_result)
-    4. [Changing reward setting for accurate control](#rl_change_reward_setting)
-    5. [Training result after revision](#rl_second_training_result)
+1. [Robot design](#robot_design)
+    1. [Wheel](#wheel)
+    2. [Solenoid](#solenoid)
+    3. [Lidar](#lidar)
+    4. [Infrared](#infrared)
+    5. [Integration](#integration)
+    6. [Teleoperation](#teleoperation)
+2. [Reinforcement Learning](#reinforcement_learning)
+    1. [Network structure](#network_structure)
+    2. [Reward setting](#reward_setting)
+    3. [Training result](#training_result)
+    4. [Changing reward setting for accurate control](#change_reward_setting)
+    5. [Training result after revision](#second_training_result)
 
-<a name="soccer_robot_design"></a>
-# Soccer robot design
+<a name="robot_design"></a>
+# Robot design
 I conclude that no matter how much football fields I changed, Jetbot need to take a soccer ball or kick it. Thus, I decided to design a robot exclusively for soccer and using the Jetson Nano.
 
 Fortunately, 3d model of NVIDIA Kaya robots and robot participating in Robocup are available online. By using both of these as a reference and utilizing 3d printer, I can easily create a Jetbot for football. And recently, the price of 3D printers has dropped sharply. Thus, I manage to find one printer to create a soccer robot at a very affordable price.
@@ -40,8 +40,8 @@ To achieve such a goal, two robot parts are once separated and measured to confi
 
 The new robot will have a solenoid in the center for a kicking and the required parts will be produced using a 3D printer.
 
-<a name="soccer_robot_design_wheel"></a>
-## Soccer robot design(Wheel)
+<a name="wheel"></a>
+## Wheel
 The power supply to the dynamixel is 12V, which utilizes the Jetbot of WaveShares main board which has 3 18560 battery.
 
 <img src="/assets/circuit_design_soccer.png" width="800">
@@ -87,8 +87,8 @@ After completing the test with RVIz, the test is similarly performed with Gazebo
 [![Omniwheel Gazebo test](https://img.youtube.com/vi/0bvrdl4Z4Lo/hqdefault.jpg)](https://youtu.be/0bvrdl4Z4Lo "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-<a name="soccer_robot_design_solenoid"></a>
-## Soccer robot design(Solenoid)
+<a name="solenoid"></a>
+## Solenoid
 The mechanism for controlling the ball is composed of a rubber roller for fixing and a solenoid electromagnet for kicking.
 
 1. [Engraving rubber roller(Made in Korea)](
@@ -163,7 +163,7 @@ After testing the tutorial plugin first, add OnRosMsg, OnUpdate function to Mode
 
 Adding the above part to jetbot_soccer.gazebo after defining the plugin can make it possible to use a custom pluging in that joint.
 
-<a name="soccer_robot_design_lidar"></a>
+<a name="lidar"></a>
 ## Soccer robot design(Lidar)
 Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor.
 
@@ -180,7 +180,7 @@ After checking operation of lidar sensor at simulation. I also check real lidar 
 <strong>Click to Watch!</strong>
 
 
-<a name="soccer_robot_design_infrared"></a>
+<a name="infrared"></a>
 ## Soccer robot design(Infrared)
 Robot need know it is holding holding ball now because camera can not see a lower part of robot. In order to solve these problems, I decide to add an infrared obstacle detection sensor at side of the roller that holds the ball.
 
@@ -193,7 +193,7 @@ The infrared sensor uses GPOI as an input directuib, as opposed to the solenoid,
 
 After mounting the infrared sensor in real robot, I also confirm that the same operation can be performed in infrared sensor of Gazebo simulation.
 
-<a name="soccer_robot_design_teleoperation"></a>
+<a name="teleoperation"></a>
 ## Soccer robot design(Teleoperation)
 It makes sense that the default motions performed in Gazebo simulations can be done in a real robot also. In order to confirm tat, the motion control function of  original version of Jetbot using the gamepad is slightly modified for Jetbot soccer version.
 
