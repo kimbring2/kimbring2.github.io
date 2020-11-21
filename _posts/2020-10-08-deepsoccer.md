@@ -10,20 +10,22 @@ Code for that post can be found on the [DeepSoccer Github](https://github.com/ki
 All the products used in the tests are inexpensive and can be purchased in Amazon. Thus, you can easily try to reproduce them.
 
 # Table of Contents
-1. [Robot design](#robot_design)
-    1. [Wheel](#wheel)
-    2. [Solenoid](#solenoid)
-    3. [Lidar](#lidar)
-    4. [Infrared](#infrared)
-    5. [Integration](#integration)
+1. [Design of DeepSoccer](#design_deepsoccer)
+    1. [Main Board](#main_board)
+    2. [Wheel](#wheel)
+    3. [Solenoid](#solenoid)
+    4. [Lidar](#lidar)
+    5. [Infrared](#infrared)
     6. [Teleoperation](#teleoperation)
-2. [Reinforcement Learning](#reinforcement_learning)
-    1. [Network structure](#network_structure)
-    2. [Reward setting](#reward_setting)
-    3. [Training result](#training_result)
-    4. [Changing reward setting for accurate control](#change_reward_setting)
-    5. [Training result after revision](#second_training_result)
-
+2. [Environment of DeepSoccer](#environment_deepsoccer)
+    1. [Real and simulation environemnt](#real_simulation_environment)
+    2. [Training robot on simulation environment](#training_on_simulation)
+    3. [Testing robot on real environment](#testing_on_real)
+3. [Deep Learning of DeepSoccer](#deep_learning_deepsoccer)
+    1. [Deep Reinforcement Learning](#deep_reinforcement_learning)
+    2. [Floor Segmentation](#floor_segmentation)
+    3. [Generate simulation image from real image](#generate_simulation_from_real)
+    
 <a name="robot_design"></a>
 # Robot design
 I conclude that no matter how much football fields I changed, Jetbot need to take a soccer ball or kick it. Thus, I decided to design a robot exclusively for soccer and using the Jetson Nano.
@@ -344,8 +346,6 @@ class SolenoidKick(Configurable):
     def _release(self):
         """Stops motor by releasing control"""
         print("_release")
-	
-
 ```
 
 ```
@@ -376,3 +376,32 @@ As you can see in the video, you can see the basic movement and ball dribbling a
 <strong>Click to Watch!</strong>
 
 I test again basic soccer function after adding a large capacitor. It seems like that the kick function is reinforced and it can kick a balls to a long distance than before.
+
+<a name="environment_deepsoccer"></a>
+# Environment of DeepSoccer
+
+
+<a name="real_simulation_environment"></a>
+## [Real and simulation environemnt](#real_simulation_environment)
+
+<a name="training_on_simulation"></a>
+## [Training robot on simulation environment](#training_on_simulation)
+
+<a name="testing_on_real"></a>
+## [Testing robot on real environment](#testing_on_real)
+
+
+
+
+
+<a name="deep_learning_deepsoccer"></a>
+# Deep Learning of DeepSoccer
+
+<a name="deep_reinforcement_learning"></a>
+## Deep reinforcement learning
+
+<a name="floor_segmentation"></a>
+## Floor segmentation
+
+<a name="generate_simulation_from_real"></a>
+## Generate simulation image from real image
