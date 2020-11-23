@@ -379,10 +379,9 @@ I test again basic soccer function after adding a large capacitor. It seems like
 
 <a name="environment_deepsoccer"></a>
 # Environment of DeepSoccer
-
-
 <a name="real_simulation_environment"></a>
 ## [Real and simulation environemnt](#real_simulation_environment)
+A large amount of data is required to train a robot through the Deep Learning method. However, it is not easy to obtain this in a real environment due to physical restrictions. For that reason, this study trains a robot in a virtual environment to play soccer game and then uses that skill in a real environment. However, the skill learned in the virtual environment can not be immediately used in the real environment because there are differences between the virtual and the real environment. In order to solve these problems, we apply a method of generating a virtual environment image from input image of the real environment.
 
 <a name="training_on_simulation"></a>
 ## [Training robot on simulation environment](#training_on_simulation)
@@ -391,12 +390,8 @@ I test again basic soccer function after adding a large capacitor. It seems like
 ## [Testing robot on real environment](#testing_on_real)
 
 
-
-
-
 <a name="deep_learning_deepsoccer"></a>
 # Deep Learning of DeepSoccer
-
 <a name="deep_reinforcement_learning"></a>
 ## Deep reinforcement learning
 
