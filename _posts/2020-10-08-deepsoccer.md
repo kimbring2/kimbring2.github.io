@@ -385,6 +385,11 @@ A large amount of data is required to train a robot through the Deep Learning me
 
 <a name="training_on_simulation"></a>
 ## [Training robot on simulation environment](#training_on_simulation)
+Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
+
+DeepSoccer also provides a package for use a it as Gym format. First, download a my_deepsoccer_training pacakge from this repo. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
+
+The my_deepsoccer_training package is based on the my_turtlebot2_training package from the http://wiki.ros.org/openai_ros tutorial. I recommend that you first run a  tutorial package successfully.
 
 <a name="testing_on_real"></a>
 ## [Testing robot on real environment](#testing_on_real)
@@ -393,10 +398,28 @@ A large amount of data is required to train a robot through the Deep Learning me
 <a name="deep_learning_deepsoccer"></a>
 # Deep Learning of DeepSoccer
 <a name="deep_reinforcement_learning"></a>
-## Deep reinforcement learning
+## Deep Reinforcement Learning
+After installing the my_deepsoccer_training package, you can use DeepSoccer with the following Gym shape. The basic actions and observations are the same as described in the Jetbot soccer section. Action is an integer from 0 to 6, indicating STOP, FORWARD, LEFT, RIGHT, BACKWARD, HOLD, and KICK, respectively. Observations are image frame from camera, robot coordinates, and lidar sensor value.
+
+After making DeepSoccer in Openai Gym format, you can use it for training robot by Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
+
+The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
 
 <a name="floor_segmentation"></a>
-## Floor segmentation
+## Floor Segmentation
+As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the chair turning into goalpost.
+
+<center><strong>Wrong generation of CycleGAN at DeepSoccer</strong></center>
+
+<img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
+
+In order to solve this problem, I first decide that it is necessary to delete all objects except the goal, goalpost, and floor that the robot should recognize to play soccer. Segmentation using classic OpenCV method do not work. On the other hand, Deep Learning model using the [ADE20K dataset](https://groups.csail.mit.edu/vision/datasets/ADE20K/) can segregate object well. You can check [code for segmentation](https://github.com/kimbring2/DeepSoccer/blob/master/segmentation.ipynb). Robot do not have to separate all the object in the dataset. Thus, I simplify the ADE20K dataset a bit like a below.
+
+<center><strong>Simplified ADE20K image and mask</strong></center>
+
+<img src="/image/ADE_train_00006856.jpg" width="300"> <img src="/image/ADE_train_00006856_seg.png" width="300"> <img src="/image/ADE_train_00006856_seg_simple.png" width="300">
+
+You can train your own model using code of that repo and simplified image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1iupbJy7QFo1lMDjHIKqxjwvCm9LA9s1H?usp=sharing) of mine and below code.
 
 <a name="generate_simulation_from_real"></a>
 ## Generate simulation image from real image
