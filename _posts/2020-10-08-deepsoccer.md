@@ -41,8 +41,6 @@ After making 3D modeling, I convert it to URDF format for Gazebo simulation usin
 <a name="main_board"></a>
 ## Main Board
 
-
-
 <a name="wheel"></a>
 ## Wheel
 The power supply to the dynamixel is 12V, which utilizes the Jetbot of WaveShares main board which has 3 18560 battery.
@@ -53,11 +51,8 @@ The U2D2 board and U2D2 power hub can be purchased at the Robotis shopping mall.
 
 1. [U2D2](http://www.robotis.us/u2d2/)
 2. [U2D2 Power Hub](http://www.robotis.us/u2d2-power-hub-board-set/)
-
-It is judged that the size omniwheel is too large. Thus, I decided to replace it with a slightly smaller wheel. Basically, onmiwheel product which provides a 3D model is selected for using in Gazebo simualtion.
-
-1. [Omniwheel shop(Korea local shop)](http://robomecha.co.kr/product/detail.html?product_no=10&cate_no=1&display_group=2)
-2. [Omniwheel 3D model](https://cad.onshape.com/documents/9a91ce8d931df48891a33741/w/d07aae74b658bfdb32b3c1a2/e/55f0a4a11d07b8ae71bce952)
+3. [Dynamixel MX-12W](https://www.robotis.us/dynamixel-mx-12w/)
+4. [Omniwheel(Korea local shop)](http://robomecha.co.kr/product/detail.html?product_no=10&cate_no=1&display_group=2)
 
 ID and communication method and firmware version of of Dynamixel can given via a program provided by ROBOTIS. I test a motor seperately before installing it to robot body. A power supply and TTL communication can be done by using a U2D2 board and power hub.
 
