@@ -36,7 +36,7 @@ I use the Onshape cloud 3D modeling service to create a model.
 
 You can see and download [my 3d model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
-After making 3D modeling, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
+After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
 
 <a name="main_board"></a>
 ## Main Board
@@ -152,7 +152,7 @@ protected: void OnUpdate()
 }
 ```
 
-After testing the tutorial plugin first, add OnRosMsg, OnUpdate function to ModelPlugin. The OnRosMsg function is for receiving message transmitted to rostopic which include force applied to the solenoid by battery. The OnUpdate function is a part for defining a force applied by the spring.
+After testing the tutorial plugin first, add OnRosMsg, OnUpdate function to ModelPlugin. The OnRosMsg function is for receiving message transmitted to rostopic which include force applied to the solenoid by battery. The OnUpdate function is a part for defining a force applied by the spring. You can download plugin file from [Solenoid Electromagnet Plugin](https://github.com/kimbring2/DeepSoccer/tree/master/solenoid_electromagnet_joint_spring_plugin)
 
 ```
 <gazebo>
@@ -164,7 +164,7 @@ After testing the tutorial plugin first, add OnRosMsg, OnUpdate function to Mode
 </gazebo>
 ```
 
-Adding the above part to jetbot_soccer.gazebo after defining the plugin can make it possible to use a custom pluging in that joint.
+Adding the above part to deepsoccer.gazebo after defining the plugin can make it possible to use a custom pluging in that joint.
 
 <a name="lidar_infrared"></a>
 ## Lidar and Infrared
