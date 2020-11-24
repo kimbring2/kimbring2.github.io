@@ -31,7 +31,7 @@ All the products used in the tests are inexpensive and can be purchased in Amazo
 # Robot design
 Unlike general driving robots, soccer robots need to move freely not only in front and behind, but also to the left and right. Furthermore, it is necessary to have the part for holding and kicking ball. In addition, embedeed board is needed which has a capacity for running 3 models of Deep Learning together.
 
-<img src="/assets/DeepSoccer_hardware_design.png" width="800">
+<img src="/assets/DeepSoccer_hardware_design.png" width="600">
 I use the Onshape cloud 3D modeling service to create a model. 
 
 You can see and download [my 3d model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
@@ -42,11 +42,13 @@ After making 3D modeling, I convert it to URDF format for Gazebo simulation usin
 ## Main Board
 The main board used in DeepSoccer is Jetson Xavier NX which can run three Deep Learning model at the same time unlike Jetson Nano which can handle only one model one time. However, Jetson Xavier NX is little expensive compared to Jetson Nano. 
 
-<img src="/assets/Jetson-Xavier-NX-Developer-Kit-details-5.jpg" width="800">
+<img src="/assets/Jetson-Xavier-NX-Developer-Kit-details-5.jpg" width="600">
 
 This board can run ROS, Python, and Tensorflow. Therefore, you can develop yout own application easily. It is also very convenient to use sensors and actuators as it supports almost all communication interfaces such as I2C, SPI, Digital input / output, CSI and USB.
 
 1. [NVIDIA Jetson Xavier NX](https://www.amazon.com/NVIDIA-Jetson-Xavier-Developer-812674024318/dp/B086874Q5R)
+
+Purchases can generally be made through Amazon.
 
 <a name="wheel"></a>
 ## Wheel
