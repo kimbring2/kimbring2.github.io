@@ -389,7 +389,21 @@ Most Deep Reinforcement Learning researchers are accustomed to Gym environment o
 
 DeepSoccer also provides a package for use a it as Gym format. That package is based on the [my_turtlebot2_training tutorial](http://wiki.ros.org/openai_ros/TurtleBot2%20with%20openai_ros). I recommend you first running a tutorial package before doing DeepSoccer package.
 
-After finishing TurtleBot2 tutorial, you need to add two file to folder the task_envs and robot_envs of openai_ros package. You can download [that package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) which including that files.
+After finishing TurtleBot2 tutorial, you need to add two file to each folder named task_envs, robot_envs of openai_ros package. One file is [deepsoccer_single.py](https://github.com/kimbring2/DeepSoccer/blob/master/openai_ros/openai_ros/src/openai_ros/task_envs/deepsoccer/deepsoccer_single.py) and other file is [deepsoccer_env.py](https://github.com/kimbring2/DeepSoccer/blob/master/openai_ros/openai_ros/src/openai_ros/robot_envs/deepsoccer_env.py). You should add DeepSoccer environment at [task_envs_list.py](https://github.com/kimbring2/DeepSoccer/blob/master/openai_ros/openai_ros/src/openai_ros/task_envs/task_envs_list.py) like below.
+
+```
+    elif task_env == 'MyDeepSoccerSingleTest-v0':
+        register(
+            id=task_env,
+            entry_point='openai_ros.task_envs.deepsoccer.deepsoccer_single_test:DeepSoccerSingleTestEnv',
+            max_episode_steps=max_episode_steps,
+        )
+
+        # import our training environment
+        from openai_ros.task_envs.deepsoccer import deepsoccer_single_test
+```
+
+You can download [that package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) which including that files.
 
 Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it. 
 
