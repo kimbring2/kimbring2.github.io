@@ -86,7 +86,7 @@ The Jetbot Soccer version uses an omniwheel that has a many sub wheel. In order 
 
 After completing the test with RVIz, the test is similarly performed with Gazebo. It is confirmed that when the friction with the floor is large, the phenomenon that the sub wheel do not rotate properly is occurred. Finding the optimal friction parameters will be an important task.
 
-[![Omniwheel Gazebo test](https://img.youtube.com/vi/0bvrdl4Z4Lo/hqdefault.jpg)](https://youtu.be/0bvrdl4Z4Lo "Jetbot Soccer Play - Click to Watch!")
+[![Omniwheel Gazebo test](https://img.youtube.com/vi/0bvrdl4Z4Lo/hqdefault.jpg)](https://youtu.be/0bvrdl4Z4Lo "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 <a name="roller"></a>
@@ -105,12 +105,11 @@ For the part for grabiing the soccer ball, I use a part of engraving roller. The
 
 After completing the operation test with the roller alone, it is mounted on the of the robot second body layer. Since then, I test whether robot can actually hold the ball.
 
-[![Roller test 2](https://img.youtube.com/vi/ve6R_gJHDgg/0.jpg)](https://youtu.be/ve6R_gJHDgg "Jetbot Soccer Play - Click to Watch!")
+[![Roller test 2](https://img.youtube.com/vi/PC2Yblt2Gek/maxresdefault.jpg)](https://www.youtube.com/watch?v=PC2Yblt2Gek "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 <a name="solenoid"></a>
 ## Solenoid
-
 For the part for kicking the soccer ball, I use a solenoid electromagnet. To control the solenoid electromagnet in the ROS, we should control GPIO using code. I use a GPIO library of Jetson (https://github.com/NVIDIA/jetson-gpio) provided by NVIDIA.
 
 It is determined that directly connecting the solenoid motor directly to the 12V power supply can not enough force to kick the ball far. Thus, large capacity capacitor and charging circuit for it is added. Thankfully I could find circuit and component for this at https://drive.google.com/file/d/17twkN9F0Dghrc06b_U9Iviq9Si9rsyOG/view.
