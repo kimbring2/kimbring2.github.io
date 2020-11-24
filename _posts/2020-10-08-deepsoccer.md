@@ -32,7 +32,7 @@ All the products used in the tests are inexpensive and can be purchased in Amazo
 Unlike general driving robots, soccer robots need to move freely not only in front and behind, but also to the left and right. Furthermore, it is necessary to have the part for holding and kicking ball. In addition, embedeed board is needed which has a capacity for running 3 models of Deep Learning together.
 
 <img src="/assets/DeepSoccer_hardware_design.png" width="800">
-I use the Onshape cloud 3D modeling service to create a model. You can check and download [my 3d model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700) from below link.
+I use the Onshape cloud 3D modeling service to create a model. You can check and download [my 3d model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
 After making 3D modeling, I convert it to URDF format for Gazebo simulation. I find and use a very convenient tool for that(https://github.com/rhoban/onshape-to-robot/)  
 
