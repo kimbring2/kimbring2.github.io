@@ -15,10 +15,9 @@ All the products used in the tests are inexpensive and can be purchased in Amazo
     2. [Wheel](#wheel)
     3. [Roller](#roller)
     4. [Solenoid](#solenoid)
-    5. [Lidar](#lidar)
-    6. [Infrared](#infrared)
-    7. [ROS Packaging](#ros_packaging)
-    8. [Teleoperation](#teleoperation)
+    5. [Lidar and Infrared](#lidar_infrared)
+    6. [ROS Packaging](#ros_packaging)
+    7. [Teleoperation](#teleoperation)
 2. [Environment of DeepSoccer](#environment_deepsoccer)
     1. [Real and simulation environemnt](#real_simulation_environment)
     2. [Training robot on simulation environment](#training_on_simulation)
@@ -76,12 +75,12 @@ In the case of dynamixel, the initial mode is the joint mode. Mode is needed to 
 
 Next, I test adjusting the speed of dynamixel using rostopic, as in the previous Jetbot.
 
-[![Dynamixel test](https://img.youtube.com/vi/VT6AOI11sbs/hqdefault.jpg)](https://youtu.be/VT6AOI11sbs "Jetbot Soccer Play - Click to Watch!")
+[![Dynamixel test](https://img.youtube.com/vi/VT6AOI11sbs/hqdefault.jpg)](https://youtu.be/VT6AOI11sbs "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 The Jetbot Soccer version uses an omniwheel that has a many sub wheel. In order to properly simulate this with Gazebo, we must make sure that each sub wheel rotates correctly. First, I check it using RViz in the same way as a main wheel.
 
-[![Omniwheel RVIz test](https://img.youtube.com/vi/Oa-rRioxU7M/hqdefault.jpg)](https://youtu.be/Oa-rRioxU7M "Jetbot Soccer Play - Click to Watch!")
+[![Omniwheel RVIz test](https://img.youtube.com/vi/Oa-rRioxU7M/hqdefault.jpg)](https://youtu.be/Oa-rRioxU7M "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 After completing the test with RVIz, the test is similarly performed with Gazebo. It is confirmed that when the friction with the floor is large, the phenomenon that the sub wheel do not rotate properly is occurred. Finding the optimal friction parameters will be an important task.
@@ -169,11 +168,11 @@ After testing the tutorial plugin first, add OnRosMsg, OnUpdate function to Mode
 
 Adding the above part to jetbot_soccer.gazebo after defining the plugin can make it possible to use a custom pluging in that joint.
 
-<a name="lidar"></a>
-## Soccer robot design(Lidar)
+<a name="lidar_infrared"></a>
+## Lidar and Infrared
 Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor.
 
-<img src="/assets/lidar_circuit.png" width="800">
+<img src="/assets/NX_Sensor.png" width="800">
 
 The lidar sensor I use can measure only on the front side. It requires 5V, GND and UART GPIO pins of Jetson Nano.
 
@@ -185,12 +184,9 @@ After checking operation of lidar sensor at simulation. I also check real lidar 
 [![lidar test 2](https://img.youtube.com/vi/LNNTYWV4W0Y/sddefault.jpg)](https://youtu.be/LNNTYWV4W0Y "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-
-<a name="infrared"></a>
-## Soccer robot design(Infrared)
 Robot need know it is holding holding ball now because camera can not see a lower part of robot. In order to solve these problems, I decide to add an infrared obstacle detection sensor at side of the roller that holds the ball.
 
-<img src="/assets/infrared_circuit.png" width="450">
+<img src="/assets/NX_Sensor.png" width="450">
 
 The infrared sensor uses GPOI as an input directuib, as opposed to the solenoid, which used GPIO as an output. If an obstacle is detected, the sensor gives a different signal to Jetson Nano.
 
@@ -200,7 +196,7 @@ The infrared sensor uses GPOI as an input directuib, as opposed to the solenoid,
 After mounting the infrared sensor in real robot, I also confirm that the same operation can be performed in infrared sensor of Gazebo simulation.
 
 <a name="teleoperation"></a>
-## Soccer robot design(Teleoperation)
+## Teleoperation
 It makes sense that the default motions performed in Gazebo simulations can be done in a real robot also. In order to confirm tat, the motion control function of  original version of Jetbot using the gamepad is slightly modified for Jetbot soccer version.
 
 <img src="/assets/teleoperation_1.png" width="600">
