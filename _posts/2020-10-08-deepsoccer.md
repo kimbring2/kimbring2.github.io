@@ -7,7 +7,8 @@ In this post, I'll try to confirm these methods are actually working. The test u
 
 Code for that post can be found on the [DeepSoccer Github](https://github.com/kimbring2/DeepSoccer).
 
-All the products used in the tests are inexpensive and can be purchased in Amazon. Thus, you can easily try to reproduce them.
+[![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
+<strong>Project Introduction!</strong>
 
 # Table of Contents
 1. [Design of DeepSoccer](#design_deepsoccer)
