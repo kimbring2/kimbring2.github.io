@@ -470,13 +470,13 @@ As can be seen in the [real world dataset](https://drive.google.com/drive/folder
 
 <center><strong>Wrong generation of CycleGAN at DeepSoccer</strong></center>
 
-<img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
+<img src="/assets/CycleGAN_wrong_case_4.png" width="400"> <img src="/assets/CycleGAN_wrong_case_7.png" width="400">
 
 In order to solve this problem, I first decide that it is necessary to delete all objects except the goal, goalpost, and floor that the robot should recognize to play soccer. Segmentation using classic OpenCV method do not work. On the other hand, Deep Learning model using the [ADE20K dataset](https://groups.csail.mit.edu/vision/datasets/ADE20K/) can segregate object well. You can check [code for segmentation](https://github.com/kimbring2/DeepSoccer/blob/master/segmentation.ipynb). Robot do not have to separate all the object in the dataset. Thus, I simplify the ADE20K dataset a bit like a below.
 
 <center><strong>Simplified ADE20K image and mask</strong></center>
 
-<img src="/image/ADE_train_00006856.jpg" width="300"> <img src="/image/ADE_train_00006856_seg.png" width="300"> <img src="/image/ADE_train_00006856_seg_simple.png" width="300">
+<img src="/assets/ADE_train_00006856.jpg" width="300"> <img src="/assets/ADE_train_00006856_seg.png" width="300"> <img src="/assets/ADE_train_00006856_seg_simple.png" width="300">
 
 You can train your own model using code of that repo and simplified image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1iupbJy7QFo1lMDjHIKqxjwvCm9LA9s1H?usp=sharing) of mine and below code.
 
