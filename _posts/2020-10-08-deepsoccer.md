@@ -100,12 +100,12 @@ https://www.ebay.com/itm/50mm-Engraving-Rubber-Roller-Brayer-Stamping-Printing-S
 
 For the part for grabiing the soccer ball, I use a part of engraving roller. The core of the roller is made by 3D printer and connected to a DC motor which is included in origin Jetbot.
 
-[![Roller test 1](https://img.youtube.com/vi/u3jQLBPoC7Q/0.jpg)](https://youtu.be/u3jQLBPoC7Q "Jetbot Soccer Play - Click to Watch!")
+[![Roller standalone test](https://img.youtube.com/vi/u3jQLBPoC7Q/0.jpg)](https://youtu.be/u3jQLBPoC7Q "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 After completing the operation test with the roller alone, it is mounted on the of the robot second body layer. Since then, I test whether robot can actually hold the ball.
 
-[![Roller test 2](https://img.youtube.com/vi/PC2Yblt2Gek/maxresdefault.jpg)](https://www.youtube.com/watch?v=PC2Yblt2Gek "DeepSoccer Play - Click to Watch!")
+[![Roller installed test](https://img.youtube.com/vi/PC2Yblt2Gek/sddefault.jpg)](https://www.youtube.com/watch?v=PC2Yblt2Gek "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 <a name="solenoid"></a>
