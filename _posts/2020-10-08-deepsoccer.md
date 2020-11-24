@@ -186,9 +186,7 @@ After checking operation of lidar sensor at simulation. I also check real lidar 
 
 Robot need know it is holding holding ball now because camera can not see a lower part of robot. In order to solve these problems, I decide to add an infrared obstacle detection sensor at side of the roller that holds the ball.
 
-<img src="/assets/NX_Sensor.png" width="450">
-
-The infrared sensor uses GPOI as an input directuib, as opposed to the solenoid, which used GPIO as an output. If an obstacle is detected, the sensor gives a different signal to Jetson Nano.
+The infrared sensor uses GPIO as an input, as opposed to the solenoid which used GPIO as an output. If an obstacle is detected, the sensor gives a different signal to Jetson Nano.
 
 [![Infrared test](https://img.youtube.com/vi/ilSl8ReIZsA/hqdefault.jpg)](https://youtu.be/ilSl8ReIZsA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
