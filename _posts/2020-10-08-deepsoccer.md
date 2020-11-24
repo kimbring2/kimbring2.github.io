@@ -403,7 +403,7 @@ After finishing TurtleBot2 tutorial, you need to add two file to each folder nam
         from openai_ros.task_envs.deepsoccer import deepsoccer_single_test
 ```
 
-You can download [that package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) which including that files.
+You can alwo download [my own openai_ros package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) including that files.
 
 Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it. 
 
