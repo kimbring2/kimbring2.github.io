@@ -16,7 +16,8 @@ All the products used in the tests are inexpensive and can be purchased in Amazo
     3. [Solenoid](#solenoid)
     4. [Lidar](#lidar)
     5. [Infrared](#infrared)
-    6. [Teleoperation](#teleoperation)
+    6. [ROS Packaging](#ros_packaging)
+    7. [Teleoperation](#teleoperation)
 2. [Environment of DeepSoccer](#environment_deepsoccer)
     1. [Real and simulation environemnt](#real_simulation_environment)
     2. [Training robot on simulation environment](#training_on_simulation)
@@ -28,19 +29,17 @@ All the products used in the tests are inexpensive and can be purchased in Amazo
     
 <a name="robot_design"></a>
 # Robot design
-I conclude that no matter how much football fields I changed, Jetbot need to take a soccer ball or kick it. Thus, I decided to design a robot exclusively for soccer and using the Jetson Nano.
+I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
-Fortunately, 3d model of NVIDIA Kaya robots and robot participating in Robocup are available online. By using both of these as a reference and utilizing 3d printer, I can easily create a Jetbot for football. And recently, the price of 3D printers has dropped sharply. Thus, I manage to find one printer to create a soccer robot at a very affordable price.
+<img src="/assets/DeepSoccer_hardware_design.png" width="600">
+I use Onshape cloud 3D modeling program to create a model. You can check and download my model from below link.
 
-1. [Kaya robot model](https://cad.onshape.com/documents/03aa2560e7a40b2b7da40e12/w/001dbb6db63b0092c9ea5823/e/37043abce9062fab02c40889)
-2. [Robocup robot model](https://www.stlfinder.com/model/naghshe-jahan-2010-robocup-soccer-robot/2284603/)
-3. [3D printer](https://ko.aliexpress.com/item/32829861835.html?spm=a2g0s.9042311.0.0.42964c4dsLAMTk)
+[DeepSoccer 3D model Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700)
 
-Jetbot's soccer robot design has two primary focuses. Kaya robot's motors, screws, batteries, electronics, etc., initially offered by NVIDIA, are the latest parts sold today and should be used wherever possible. Second, the overall design of the robot should be as similar as possible to the design of the robot that entered Robotbup.
+After making 3D modeling, I convert it to URDF format for Gazebo simulation. I find and use a very convenient tool for that(https://github.com/rhoban/onshape-to-robot/)  
 
-To achieve such a goal, two robot parts are once separated and measured to confirm what parts are needed to be newly designed or modified.
-
-The new robot will have a solenoid in the center for a kicking and the required parts will be produced using a 3D printer.
+<a name="main_board"></a>
+## Main Board
 
 <a name="wheel"></a>
 ## Wheel
