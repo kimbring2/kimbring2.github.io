@@ -13,11 +13,12 @@ All the products used in the tests are inexpensive and can be purchased in Amazo
 1. [Design of DeepSoccer](#design_deepsoccer)
     1. [Main Board](#main_board)
     2. [Wheel](#wheel)
-    3. [Solenoid](#solenoid)
-    4. [Lidar](#lidar)
-    5. [Infrared](#infrared)
-    6. [ROS Packaging](#ros_packaging)
-    7. [Teleoperation](#teleoperation)
+    3. [Roller](#roller)
+    4. [Solenoid](#solenoid)
+    5. [Lidar](#lidar)
+    6. [Infrared](#infrared)
+    7. [ROS Packaging](#ros_packaging)
+    8. [Teleoperation](#teleoperation)
 2. [Environment of DeepSoccer](#environment_deepsoccer)
     1. [Real and simulation environemnt](#real_simulation_environment)
     2. [Training robot on simulation environment](#training_on_simulation)
@@ -88,8 +89,8 @@ After completing the test with RVIz, the test is similarly performed with Gazebo
 [![Omniwheel Gazebo test](https://img.youtube.com/vi/0bvrdl4Z4Lo/hqdefault.jpg)](https://youtu.be/0bvrdl4Z4Lo "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-<a name="solenoid"></a>
-## Solenoid
+<a name="roller"></a>
+## Roller
 The mechanism for controlling the ball is composed of a rubber roller for fixing and a solenoid electromagnet for kicking.
 
 1. [Engraving rubber roller(Made in Korea)](
@@ -104,6 +105,9 @@ After completing the operation test with the roller alone, it is mounted on the 
 
 [![Roller test 2](https://img.youtube.com/vi/ve6R_gJHDgg/0.jpg)](https://youtu.be/ve6R_gJHDgg "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
+
+<a name="solenoid"></a>
+## Solenoid
 
 For the part for kicking the soccer ball, I use a solenoid electromagnet. To control the solenoid electromagnet in the ROS, we should control GPIO using code. I use a GPIO library of Jetson (https://github.com/NVIDIA/jetson-gpio) provided by NVIDIA.
 
