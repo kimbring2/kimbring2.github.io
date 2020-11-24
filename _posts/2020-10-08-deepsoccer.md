@@ -40,6 +40,13 @@ After making 3D modeling, I convert it to URDF format for Gazebo simulation usin
 
 <a name="main_board"></a>
 ## Main Board
+The main board used in DeepSoccer is Jetson Xavier NX which can run three Deep Learning model at the same time unlike Jetson Nano which can handle only one model one time. However, Jetson Xavier NX is little expensive compared to Jetson Nano. 
+
+<img src="/assets/Jetson-Xavier-NX-Developer-Kit-details-5.jpg" width="800">
+
+This board can run ROS, Python, and Tensorflow. Therefore, you can develop yout own application easily. It is also very convenient to use sensors and actuators as it supports almost all communication interfaces such as I2C, SPI, Digital input / output, CSI and USB.
+
+1. [NVIDIA Jetson Xavier NX](https://www.amazon.com/NVIDIA-Jetson-Xavier-Developer-812674024318/dp/B086874Q5R)
 
 <a name="wheel"></a>
 ## Wheel
