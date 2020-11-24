@@ -25,8 +25,7 @@ Code for that post can be found on the [DeepSoccer Github](https://github.com/ki
     3. [Testing robot on real environment](#testing_on_real)
 3. [Deep Learning of DeepSoccer](#deep_learning_deepsoccer)
     1. [Deep Reinforcement Learning](#deep_reinforcement_learning)
-    2. [Floor Segmentation](#floor_segmentation)
-    3. [Generate simulation image from real image](#generate_simulation_from_real)
+    2. [Sim2Real](#sim_to_real)
     
 <a name="robot_design"></a>
 # Robot design
@@ -417,8 +416,8 @@ After making DeepSoccer in Openai Gym format, you can use it for training robot 
 
 The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
 
-<a name="floor_segmentation"></a>
-## Floor Segmentation
+<a name="sim_to_real"></a>
+## Sim2Real
 As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the chair turning into goalpost.
 
 <center><strong>Wrong generation of CycleGAN at DeepSoccer</strong></center>
@@ -433,8 +432,6 @@ In order to solve this problem, I first decide that it is necessary to delete al
 
 You can train your own model using code of that repo and simplified image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1iupbJy7QFo1lMDjHIKqxjwvCm9LA9s1H?usp=sharing) of mine and below code.
 
-<a name="generate_simulation_from_real"></a>
-## Generate simulation image from real image
 Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. Recently, there are several ways to apply deep learning to these Sim2Real. One of method is using Neural Style Transfer and another is applying CycleGAN. I apply both of methods to DeepSoccer and check it is working properly.
 
 <img src="/assets/sim2real_concept.png" width="600">
@@ -474,3 +471,55 @@ cv2.imwrite("output_style.jpg", output_style)
 ```
 
 You can save the pretrain model to your Jetson Nano and use the above code to try to run Neural Style Transfer.
+
+The method using CycleGAN trains a model by dataset of real and simulation world. I find a code for that at [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan).
+
+[![DeepSoccer cyclegan test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "DeepSoccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
+As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the chair turning into goalpost.
+
+<center><strong>Wrong generation of CycleGAN at DeepSoccer</strong></center>
+
+<img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
+
+In order to solve this problem, I first decide that it is necessary to delete all objects except the goal, goalpost, and floor that the robot should recognize to play soccer. Segmentation using classic OpenCV method do not work. On the other hand, Deep Learning model using the [ADE20K dataset](https://groups.csail.mit.edu/vision/datasets/ADE20K/) can segregate object well. You can check [code for segmentation](https://github.com/kimbring2/DeepSoccer/blob/master/segmentation.ipynb). Robot do not have to separate all the object in the dataset. Thus, I simplify the ADE20K dataset a bit like a below.
+
+<center><strong>Simplified ADE20K image and mask</strong></center>
+
+<img src="/image/ADE_train_00006856.jpg" width="300"> <img src="/image/ADE_train_00006856_seg.png" width="300"> <img src="/image/ADE_train_00006856_seg_simple.png" width="300">
+
+You can train your own model using code of that repo and simplified image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1iupbJy7QFo1lMDjHIKqxjwvCm9LA9s1H?usp=sharing) of mine and below code.
+
+```
+import cv2
+import numpy as np
+import tensorflow as tf
+
+imported_seg = tf.saved_model.load("/home/[your Jetson Nano user name]/segmentation_model_official")
+f_seg = imported_seg.signatures["serving_default"]
+seg_test_input = np.zeros([1,256,256,3])
+seg_test_tensor = tf.convert_to_tensor(seg_test_input, dtype=tf.float32)
+f_seg(seg_test_tensor)['conv2d_transpose_4']
+
+cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
+if cap.isOpened() != 1:
+    continue
+
+ret, frame = cap.read()
+img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
+            
+img = cv2.normalize(img, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
+resized = np.array([img])
+input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
+output_seg = f_seg(input_tensor)['conv2d_transpose_4'].numpy()
+
+cv2.imwrite("output_seg.jpg", output_seg)
+```
+
+The floor have to be distinguished by the Deep Learning. However, the goal, goalpost have the primary colors such as green, and red. Thus, they can be found through the classic HSV conversion of OpenCV. You can see the original video and the result of applying each method in the video below at once.
+
+[![DeepSoccer segmentation test](https://img.youtube.com/vi/pFfysLZfcb4/sddefault.jpg)](https://youtu.be/pFfysLZfcb4 "DeepSoccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
+you can try to make your own segmented image set for CycleGAN or get of mine from [segmented image](https://drive.google.com/drive/folders/1S4R7NGOu-IZZskSwGL5YXpU7-fVQLSqR?usp=sharing).
