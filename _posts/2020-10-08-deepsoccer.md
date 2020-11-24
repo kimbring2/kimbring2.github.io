@@ -93,6 +93,8 @@ After completing the test with RVIz, the test is similarly performed with Gazebo
 ## Roller
 The mechanism for controlling the ball is composed of a rubber roller for fixing and a solenoid electromagnet for kicking.
 
+<img src="/assets/NX_DC_Motor.png" width="800">
+
 1. [Engraving rubber roller(Made in Korea)](
 https://www.ebay.com/itm/50mm-Engraving-Rubber-Roller-Brayer-Stamping-Printing-Screening-Tool-Korea-/153413802463)
 
