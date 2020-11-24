@@ -389,7 +389,11 @@ Most Deep Reinforcement Learning researchers are accustomed to Gym environment o
 
 
 
-DeepSoccer also provides a package for use a it as Gym format. First, download a my_deepsoccer_training pacakge from this repo. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
+DeepSoccer also provides a package for use a it as Gym format. 
+
+First, you need to add the task_envs and robot_envs of DeepSoccer to the folder of openai_ros package. You can download [that package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) which including that files.
+
+Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
 
 The my_deepsoccer_training package is based on the my_turtlebot2_training package from the http://wiki.ros.org/openai_ros tutorial. I recommend that you first run a  tutorial package successfully.
 
