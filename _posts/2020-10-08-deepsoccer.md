@@ -387,19 +387,14 @@ A large amount of data is required to train a robot through the Deep Learning me
 ## [Training robot on simulation environment](#training_on_simulation)
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called [openai_ros](http://wiki.ros.org/openai_ros) that allows user use a custom robot environment in the form of Gym. 
 
+DeepSoccer also provides a package for use a it as Gym format. That package is based on the [my_turtlebot2_training tutorial](http://wiki.ros.org/openai_ros/TurtleBot2%20with%20openai_ros). I recommend you first running a tutorial package before doing DeepSoccer package.
 
+After finishing TurtleBot2 tutorial, you need to add two file to folder the task_envs and robot_envs of openai_ros package. You can download [that package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) which including that files.
 
-DeepSoccer also provides a package for use a it as Gym format. 
-
-First, you need to add the task_envs and robot_envs of DeepSoccer to the folder of openai_ros package. You can download [that package](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros) which including that files.
-
-Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
-
-The my_deepsoccer_training package is based on the my_turtlebot2_training package from the http://wiki.ros.org/openai_ros tutorial. I recommend that you first run a  tutorial package successfully.
+Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it. 
 
 <a name="testing_on_real"></a>
 ## [Testing robot on real environment](#testing_on_real)
-
 
 <a name="deep_learning_deepsoccer"></a>
 # Deep Learning of DeepSoccer
