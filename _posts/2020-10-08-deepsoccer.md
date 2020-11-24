@@ -52,8 +52,6 @@ Purchases can generally be made through Amazon.
 
 <a name="wheel"></a>
 ## Wheel
-The power supply to the dynamixel is 12V, which utilizes the Jetbot of WaveShares main board which has 3 18560 battery.
-
 <img src="/assets/NX_Dynamixel.png" width="800">
 
 The U2D2 board and U2D2 power hub can be purchased at the Robotis shopping mall. However, if you have existing one, you can change only the 12V power supply method and use the rest as it is.
@@ -78,7 +76,7 @@ Next, I test adjusting the speed of dynamixel using rostopic, as in the previous
 [![Dynamixel test](https://img.youtube.com/vi/VT6AOI11sbs/hqdefault.jpg)](https://youtu.be/VT6AOI11sbs "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-The Jetbot Soccer version uses an omniwheel that has a many sub wheel. In order to properly simulate this with Gazebo, we must make sure that each sub wheel rotates correctly. First, I check it using RViz in the same way as a main wheel.
+The DeepSoccer uses an omniwheel that has a many sub wheel. In order to properly simulate this with Gazebo, we must make sure that each sub wheel rotates correctly. First, I check it using RViz in the same way as a main wheel.
 
 [![Omniwheel RVIz test](https://img.youtube.com/vi/Oa-rRioxU7M/hqdefault.jpg)](https://youtu.be/Oa-rRioxU7M "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
@@ -113,7 +111,7 @@ For the part for kicking the soccer ball, I use a solenoid electromagnet. To con
 
 It is determined that directly connecting the solenoid motor directly to the 12V power supply can not enough force to kick the ball far. Thus, large capacity capacitor and charging circuit for it is added. Thankfully I could find circuit and component for this at https://drive.google.com/file/d/17twkN9F0Dghrc06b_U9Iviq9Si9rsyOG/view.
 
-<img src="/assets/reinforced_solenoid.png" width="800">
+<img src="/assets/NX_Solenoid.png" width="800">
 
 1. [Capacitor buying link](https://www.aliexpress.com/item/32866139188.html?spm=a2g0s.9042311.0.0.2db94c4dNsaPDZ)
 2. [Capacitor Charger](https://www.aliexpress.com/item/32904490215.html?spm=a2g0s.9042311.0.0.27424c4dANjLyy)
