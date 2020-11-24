@@ -45,7 +45,7 @@ After making 3D modeling, I convert it to URDF format for Gazebo simulation. I f
 ## Wheel
 The power supply to the dynamixel is 12V, which utilizes the Jetbot of WaveShares main board which has 3 18560 battery.
 
-<img src="/assets/circuit_design_soccer.png" width="800">
+<img src="/assets/NX_Dynamixel.png" width="800">
 
 The U2D2 board and U2D2 power hub can be purchased at the Robotis shopping mall. However, if you have existing one, you can change only the 12V power supply method and use the rest as it is.
 
