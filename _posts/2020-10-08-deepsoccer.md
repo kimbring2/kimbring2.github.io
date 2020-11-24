@@ -41,6 +41,8 @@ After making 3D modeling, I convert it to URDF format for Gazebo simulation usin
 <a name="main_board"></a>
 ## Main Board
 
+
+
 <a name="wheel"></a>
 ## Wheel
 The power supply to the dynamixel is 12V, which utilizes the Jetbot of WaveShares main board which has 3 18560 battery.
@@ -57,9 +59,6 @@ It is judged that the size omniwheel is too large. Thus, I decided to replace it
 1. [Omniwheel shop(Korea local shop)](http://robomecha.co.kr/product/detail.html?product_no=10&cate_no=1&display_group=2)
 2. [Omniwheel 3D model](https://cad.onshape.com/documents/9a91ce8d931df48891a33741/w/d07aae74b658bfdb32b3c1a2/e/55f0a4a11d07b8ae71bce952)
 
-[![Dynamixel test 1](https://img.youtube.com/vi/4q6_ML3Ii8o/0.jpg)](https://youtu.be/4q6_ML3Ii8o "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
 ID and communication method and firmware version of of Dynamixel can given via a program provided by ROBOTIS. I test a motor seperately before installing it to robot body. A power supply and TTL communication can be done by using a U2D2 board and power hub.
 
 <img src="/assets/assembly_1.jpg" height="400"> <img src="/assets/assembly_2.jpg" height="400">
@@ -68,14 +67,11 @@ After confirming only the operation of the motor separately, the motor and the c
 
 <img src="/assets/ccw_setting.png" width="400"> <img src="/assets/speed_setting.png" width="400">
 
-In the case of dynamixel, the initial mode is the joint mode. Mode is needed to be changed to the wheel mode for using soccer robot. This can be achieved by setting the CCW Angle Limit of motor to 0. To rotate the motor set in the wheel mode at a specific speed, you just need to give a specific value to Moving Speed.
-
-[![Dynamixel test 2](https://img.youtube.com/vi/3NiTv4gDRWQ/hqdefault.jpg)](https://youtu.be/3NiTv4gDRWQ "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
+In the case of dynamixel, the initial mode is the joint mode. Mode is needed to be changed to the wheel mode for using soccer robot. This can be achieved by setting the CCW Angle Limit of motor to 0. To rotate the motor set in the wheel mode at a specific speed, you just need to give a specific value to Moving Speed
 
 Next, I test adjusting the speed of dynamixel using rostopic, as in the previous Jetbot.
 
-[![Dynamixel test 3](https://img.youtube.com/vi/VT6AOI11sbs/hqdefault.jpg)](https://youtu.be/VT6AOI11sbs "Jetbot Soccer Play - Click to Watch!")
+[![Dynamixel test](https://img.youtube.com/vi/VT6AOI11sbs/hqdefault.jpg)](https://youtu.be/VT6AOI11sbs "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 The Jetbot Soccer version uses an omniwheel that has a many sub wheel. In order to properly simulate this with Gazebo, we must make sure that each sub wheel rotates correctly. First, I check it using RViz in the same way as a main wheel.
