@@ -418,7 +418,7 @@ After making DeepSoccer in Openai Gym format, you can use it for training robot 
 The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
 
 <a name="generative_adversarial_network"></a>
-## Generative_Adversarial_Network
+## Generative Adversarial Network
 Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. Recently, there are several ways to apply deep learning to these Sim2Real. One of method is using Neural Style Transfer and another is applying CycleGAN. I apply both of methods to DeepSoccer and check it is working properly.
 
 <img src="/assets/sim2real_concept.png" width="600">
