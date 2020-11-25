@@ -35,7 +35,7 @@ Unlike general driving robots, soccer robots need to move freely not only in fro
 <img src="/assets/DeepSoccer_hardware_design.png" width="600">
 I use the Onshape cloud 3D modeling service to create a model. 
 
-You can see and download [my 3d model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
+You can see and download [my 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
 After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
 
