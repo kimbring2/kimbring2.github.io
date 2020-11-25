@@ -49,7 +49,15 @@ This board can run ROS, Python, and Tensorflow. Therefore, you can develop yout 
 
 1. [NVIDIA Jetson Xavier NX](https://www.amazon.com/NVIDIA-Jetson-Xavier-Developer-812674024318/dp/B086874Q5R)
 
-Purchases can generally be made through Amazon.
+Purchases can generally be made through Amazon. Unlike the Jetson Nano, which can be operated with three 18650 batteries, the Jetson Xavier NX requires four 18650 batteries to operate stably. 
+
+<img src="/assets/NX_expansion.png" width="800">
+
+2. [18650 Battery Holder 4 Slots](https://www.amazon.com/abcGoodefg-Battery-Holder-Plastic-Storage/dp/B071XTGBH6/ref=sr_1_1?crid=1L5HZHK1U0S6Y&dchild=1&keywords=18650+battery+holder+4+slot&qid=1606271098&sprefix=18650+battery+holder+4%2Caps%2C340&sr=8-1)
+3. [Lithium Battery Protection Board](https://www.amazon.com/ZRM-Lithium-Protection-Overcharge-Electronic/dp/B07RGPSSQS/ref=sr_1_23?dchild=1&keywords=Lithium+Polymer+Battery+Protection+Board&qid=1606271336&sr=8-23)
+4. [Lithium Battery Voltage Indicator](https://www.amazon.com/1S-3-7V-Battery-Voltage-Tester/dp/B01N9M05DA/ref=pd_lpo_328_img_1/130-4493602-6974653?_encoding=UTF8&pd_rd_i=B01N9M05DA&pd_rd_r=beb7e722-d92f-489e-810c-7578d1397195&pd_rd_w=vCrGR&pd_rd_wg=WfnfD&pf_rd_p=7b36d496-f366-4631-94d3-61b87b52511b&pf_rd_r=ZYPH4HRXPAE1124HNKJ3&psc=1&refRID=ZYPH4HRXPAE1124HNKJ3)
+5. [L298 Motor Driver](https://www.amazon.com/HiLetgo-Controller-Stepper-H-Bridge-Mega2560/dp/B07BK1QL5T/ref=sr_1_3?crid=3T1MYM4DCAHQ0&dchild=1&keywords=l298+motor+driver&qid=1606271045&sprefix=l298+%2Caps%2C361&sr=8-3)
+
 
 <a name="wheel"></a>
 ## Wheel
