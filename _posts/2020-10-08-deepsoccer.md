@@ -377,11 +377,11 @@ I test again basic soccer function after adding a large capacitor. It seems like
 <a name="environment_deepsoccer"></a>
 # Environment of DeepSoccer
 <a name="real_simulation_environment"></a>
-## [Real and simulation environemnt](#real_simulation_environment)
+## [Real and simulation environemnt]
 A large amount of data is required to train a robot through the Deep Learning method. However, it is not easy to obtain this in a real environment due to physical restrictions. For that reason, this study trains a robot in a virtual environment to play soccer game and then uses that skill in a real environment. However, the skill learned in the virtual environment can not be immediately used in the real environment because there are differences between the virtual and the real environment. In order to solve these problems, we apply a method of generating a virtual environment image from input image of the real environment.
 
 <a name="training_on_simulation"></a>
-## [Training robot on simulation environment](#training_on_simulation)
+## [Training robot on simulation environment]
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called [openai_ros](http://wiki.ros.org/openai_ros) that allows user use a custom robot environment in the form of Gym. 
 
 DeepSoccer also provides a package for use a it as Gym format. That package is based on the [my_turtlebot2_training tutorial](http://wiki.ros.org/openai_ros/TurtleBot2%20with%20openai_ros). I recommend you first running a tutorial package before doing DeepSoccer package.
@@ -405,7 +405,7 @@ You can download [my own openai_ros package](https://github.com/kimbring2/DeepSo
 Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it. 
 
 <a name="testing_on_real"></a>
-## [Testing robot on real environment](#testing_on_real)
+## [Testing robot on real environment]
 
 <a name="deep_learning_deepsoccer"></a>
 # Deep Learning of DeepSoccer
@@ -416,6 +416,8 @@ After installing the my_deepsoccer_training package, you can use DeepSoccer with
 After making DeepSoccer in Openai Gym format, you can use it for training robot by Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
 
 The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
+
+
 
 <a name="generative_adversarial_network"></a>
 ## Generative Adversarial Network
