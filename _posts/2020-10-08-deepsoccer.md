@@ -14,12 +14,13 @@ Code for that post can be found on the [DeepSoccer Github](https://github.com/ki
 1. [Design of DeepSoccer](#design_deepsoccer)
     1. [Main Board](#main_board)
     2. [OLED](#oled)
-    3. [Wheel](#wheel)
-    4. [Roller](#roller)
-    5. [Solenoid](#solenoid)
-    6. [Lidar and Infrared](#lidar_infrared)
-    7. [ROS Packaging](#ros_packaging)
-    8. [Teleoperation](#teleoperation)
+    3. [Jupyter notebook](#jupyter_notebook)
+    4. [Wheel](#wheel)
+    5. [Roller](#roller)
+    6. [Solenoid](#solenoid)
+    7. [Lidar and Infrared](#lidar_infrared)
+    8. [ROS Packaging](#ros_packaging)
+    9. [Teleoperation](#teleoperation)
 2. [Environment of DeepSoccer](#environment_deepsoccer)
     1. [Real and simulation environemnt](#real_simulation_environment)
     2. [Training robot on simulation environment](#training_on_simulation)
@@ -102,6 +103,48 @@ sudo systemctl status deepsoccer_stats
 ```
 
 <img src="/assets/deepsoccer_oled_3.png" width="800">
+
+<a name="jupyter_notebook"></a>
+## Jupyter Notebook
+As with the original Jetbot, you can use a Jupyter Notebook to test a your code without connecting with monitor. First, insall Jupyter package and creates a configuration file using the following command.
+
+```
+$ pip3 install jupyterlab
+$ jupyter notebook --generate-config
+```
+
+Next, open ipython and generate a hash to set the password.
+
+```
+$ ipython
+
+In [1]: from IPython.lib import passwd
+
+In [2]: passwd()
+Enter password: 
+Verify password: 
+Out[2]: 'sha1:60f3ac9aec93:be2d6048e9b1e7ae0f1ccbad9d746734bf5c3797'
+```
+
+Next, record generated hash in the jupyter_notebook_config.json file created at previous step.
+
+```
+$ sudo vi ~/.jupyter/jupyter_notebook_config.json
+
+c = get_config()
+c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.open_browser = False
+c.NotebookApp.port = 8080
+c.NotebookApp.password = 'sha1:60f3ac9aec93:be2d6048e9b1e7ae0f1ccbad9d746734bf5c3797'
+```
+
+Finally, start Jupyter Notebook with the command below and enter the password you set earlier.
+
+```
+$ jupyter notebook
+```
+
+<img src="/assets/deepsoccer_jupyter_0.png" width="800">
 
 <a name="wheel"></a>
 ## Wheel
