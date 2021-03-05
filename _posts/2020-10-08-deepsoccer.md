@@ -13,12 +13,13 @@ Code for that post can be found on the [DeepSoccer Github](https://github.com/ki
 # Table of Contents
 1. [Design of DeepSoccer](#design_deepsoccer)
     1. [Main Board](#main_board)
-    2. [Wheel](#wheel)
-    3. [Roller](#roller)
-    4. [Solenoid](#solenoid)
-    5. [Lidar and Infrared](#lidar_infrared)
-    6. [ROS Packaging](#ros_packaging)
-    7. [Teleoperation](#teleoperation)
+    2. [OLED](#oled)
+    3. [Wheel](#wheel)
+    4. [Roller](#roller)
+    5. [Solenoid](#solenoid)
+    6. [Lidar and Infrared](#lidar_infrared)
+    7. [ROS Packaging](#ros_packaging)
+    8. [Teleoperation](#teleoperation)
 2. [Environment of DeepSoccer](#environment_deepsoccer)
     1. [Real and simulation environemnt](#real_simulation_environment)
     2. [Training robot on simulation environment](#training_on_simulation)
@@ -58,6 +59,49 @@ Purchases can generally be made through Amazon. Unlike the Jetson Nano, which ca
 4. [Lithium Battery Voltage Indicator](https://www.amazon.com/1S-3-7V-Battery-Voltage-Tester/dp/B01N9M05DA/ref=pd_lpo_328_img_1/130-4493602-6974653?_encoding=UTF8&pd_rd_i=B01N9M05DA&pd_rd_r=beb7e722-d92f-489e-810c-7578d1397195&pd_rd_w=vCrGR&pd_rd_wg=WfnfD&pf_rd_p=7b36d496-f366-4631-94d3-61b87b52511b&pf_rd_r=ZYPH4HRXPAE1124HNKJ3&psc=1&refRID=ZYPH4HRXPAE1124HNKJ3)
 5. [L298 Motor Driver](https://www.amazon.com/HiLetgo-Controller-Stepper-H-Bridge-Mega2560/dp/B07BK1QL5T/ref=sr_1_3?crid=3T1MYM4DCAHQ0&dchild=1&keywords=l298+motor+driver&qid=1606271045&sprefix=l298+%2Caps%2C361&sr=8-3)
 
+<a name="oled"></a>
+## OLED
+<img src="/assets/deepsoccer_oled_1.jpg" width="800">
+
+DeepSoccer has OLED display like an original Jetbot to monitor IP Address, memory usage without monitor connection.
+
+1. [OLED](https://www.waveshare.com/0.91inch-oled-module.htm)
+
+Jetson Xavier NX is connected to OLED module by using VDC, GND and SCL, SDA of 0 Channel I2C.
+
+<img src="/assets/deepsoccer_oled_2.jpg" width="800">
+
+After connecting the hardware, download the Jetbot package from https://github.com/NVIDIA-AI-IOT/jetbot to Jetson Xaiver NX and install it using setup.py file. In this package, execute a python file (https://github.com/NVIDIA-AI-IOT/jetbot/blob/master/jetbot/utils/create_stats_service.py) that displays the current information in OLED.
+
+After that, try to register sevice to execut OLED file automatically when the board boot. First, move to /etc/systemd/system/ location of Ubuntu. Then, create a file named deepsoccer_stats.service with following contents.
+
+```
+[Unit]
+Description=DeepSoccer stats display service
+[Service]
+Type=simple
+User=kimbring2
+ExecStart=/bin/sh -c "python3 /home/kimbring2/jetbot/jetbot/apps/stats.py"
+Restart=always
+[Install]
+WantedBy=multi-user.target
+```
+
+Then, register the file as a service and start it as shown below.
+
+```
+$ systemctl daemon-reload
+$ systemctl enable deepsoccer_stats
+$ systemctl start deepsoccer_stats
+```
+
+The registered service can be confirmed with the following command.
+
+```
+sudo systemctl status deepsoccer_stats
+```
+
+<img src="/assets/deepsoccer_oled_3.png" width="800">
 
 <a name="wheel"></a>
 ## Wheel
