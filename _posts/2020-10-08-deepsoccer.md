@@ -65,11 +65,11 @@ Purchases can generally be made through Amazon. Unlike the Jetson Nano, which ca
 
 DeepSoccer has OLED display like an original Jetbot to monitor IP Address, memory usage without monitor connection.
 
-1. [OLED](https://www.waveshare.com/0.91inch-oled-module.htm)
+1. [Waveshare OLED module](https://www.waveshare.com/0.91inch-oled-module.htm)
 
 Jetson Xavier NX is connected to OLED module by using VDC, GND and SCL, SDA of 0 Channel I2C.
 
-<img src="/assets/deepsoccer_oled_2.jpg" width="800">
+<img src="/assets/deepsoccer_oled_2.png" width="800">
 
 After connecting the hardware, download the Jetbot package from https://github.com/NVIDIA-AI-IOT/jetbot to Jetson Xaiver NX and install it using setup.py file. In this package, execute a python file (https://github.com/NVIDIA-AI-IOT/jetbot/blob/master/jetbot/utils/create_stats_service.py) that displays the current information in OLED.
 
