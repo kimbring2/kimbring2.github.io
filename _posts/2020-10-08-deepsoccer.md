@@ -499,9 +499,6 @@ You can download [my own openai_ros package](https://github.com/kimbring2/DeepSo
 
 Second, download a [my_deepsoccer_training pacakge](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training). After that, copy it to the src folder under ROS workspace like a Jetbot package and build it. 
 
-<a name="testing_on_real"></a>
-## Testing robot on real environment
-
 <a name="deep_learning_deepsoccer"></a>
 # Deep Learning of DeepSoccer
 <a name="deep_reinforcement_learning"></a>
