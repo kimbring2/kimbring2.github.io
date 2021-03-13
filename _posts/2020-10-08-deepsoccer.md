@@ -537,19 +537,44 @@ style_test_input = np.zeros([1,256,256,3])
 style_test_tensor = tf.convert_to_tensor(style_test_input, dtype=tf.float32)
 f_style(style_test_tensor)['output_1']
 
+def gstreamer_pipeline(
+    capture_width=1280,
+    capture_height=720,
+    display_width=1280,
+    display_height=720,
+    framerate=60,
+    flip_method=0,
+):
+    return (
+        "nvarguscamerasrc ! "
+        "video/x-raw(memory:NVMM), "
+        "width=(int)%d, height=(int)%d, "
+        "format=(string)NV12, framerate=(fraction)%d/1 ! "
+        "nvvidconv flip-method=%d ! "
+        "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+        "videoconvert ! "
+        "video/x-raw, format=(string)BGR ! appsink"
+        % (
+            capture_width,
+            capture_height,
+            framerate,
+            flip_method,
+            display_width,
+            display_height,
+        )
+    )
+
 cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
 if cap.isOpened() != 1:
-    continue
-
-ret, frame = cap.read()
-img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
+    ret, frame = cap.read()
+    img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
             
-img = cv2.normalize(img, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
-resized = np.array([img])
-input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
-output_style = f_style(input_tensor)['output_1'].numpy()
+    img = cv2.normalize(img, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
+    resized = np.array([img])
+    input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
+    output_style = f_style(input_tensor)['output_1'].numpy()
 
-cv2.imwrite("output_style.jpg", output_style)
+    cv2.imwrite("output_style.jpg", output_style)
 ```
 
 You can save the pretrain model to your Jetson Nano and use the above code to try to run Neural Style Transfer.
@@ -590,19 +615,44 @@ seg_test_input = np.zeros([1,256,256,3])
 seg_test_tensor = tf.convert_to_tensor(seg_test_input, dtype=tf.float32)
 f_seg(seg_test_tensor)['conv2d_transpose_4']
 
+def gstreamer_pipeline(
+    capture_width=1280,
+    capture_height=720,
+    display_width=1280,
+    display_height=720,
+    framerate=60,
+    flip_method=0,
+):
+    return (
+        "nvarguscamerasrc ! "
+        "video/x-raw(memory:NVMM), "
+        "width=(int)%d, height=(int)%d, "
+        "format=(string)NV12, framerate=(fraction)%d/1 ! "
+        "nvvidconv flip-method=%d ! "
+        "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+        "videoconvert ! "
+        "video/x-raw, format=(string)BGR ! appsink"
+        % (
+            capture_width,
+            capture_height,
+            framerate,
+            flip_method,
+            display_width,
+            display_height,
+        )
+    )
+
 cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
 if cap.isOpened() != 1:
-    continue
-
-ret, frame = cap.read()
-img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
+    ret, frame = cap.read()
+    img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
             
-img = cv2.normalize(img, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
-resized = np.array([img])
-input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
-output_seg = f_seg(input_tensor)['conv2d_transpose_4'].numpy()
+    img = cv2.normalize(img, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
+    resized = np.array([img])
+    input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
+    output_seg = f_seg(input_tensor)['conv2d_transpose_4'].numpy()
 
-cv2.imwrite("output_seg.jpg", output_seg)
+    cv2.imwrite("output_seg.jpg", output_seg)
 ```
 
 The floor have to be distinguished by the Deep Learning. However, the goal, goalpost have the primary colors such as green, and red. Thus, they can be found through the classic HSV conversion of OpenCV. You can see the original video and the result of applying each method in the video below at once.
