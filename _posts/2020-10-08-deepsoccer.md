@@ -509,6 +509,10 @@ After making DeepSoccer in Openai Gym format, you can use it for training robot 
 
 The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
 
+In addition, it is often difficult to reach the performance of what we want to get only by using Supervised Learning. Therefore, it is necessary to train more using Reinforcement Learning. Currently, it is common to use a multiple environment together for trarning speed. However, in the case of ROS Gazebo, only one environment can be generated for one OS. Hence, it is necessary to use virtualization technique such as Docker to run multiple environments in one PC.
+
+<img src="/assets/rl_model_architecture.png" width="600">
+
 <a name="generative_adversarial_network"></a>
 ## Generative Adversarial Network
 Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. Recently, there are several ways to apply deep learning to these Sim2Real. One of method is using Neural Style Transfer and another is applying CycleGAN. I apply both of methods to DeepSoccer and check it is working properly.
