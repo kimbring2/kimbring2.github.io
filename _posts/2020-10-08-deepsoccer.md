@@ -507,11 +507,13 @@ After installing the my_deepsoccer_training package, you can use DeepSoccer with
 
 After making DeepSoccer in Openai Gym format, you can use it for training robot by Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
 
-The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
-
-In addition, it is often difficult to reach the performance of what we want to get only by using Supervised Learning. Therefore, it is necessary to train more using Reinforcement Learning. Currently, it is common to use a multiple environment together for trarning speed. However, in the case of ROS Gazebo, only one environment can be generated for one OS. Hence, it is necessary to use virtualization technique such as Docker to run multiple environments in one PC.
+In addition, it is often difficult to reach the performance of what we want to get only by using Supervised Learning. Therefore, it is necessary to train more using Reinforcement Learning. Currently, it is common to use a multiple environment together for trarning speed such as "Distributed Prioritized Experience Replay". However, in the case of ROS Gazebo, only one environment can be generated for one OS. Hence, it is necessary to use virtualization technique such as Docker to run multiple environments in one PC.
 
 <img src="/assets/rl_model_architecture.png" width="600">
+
+The structure of the proposed model is like a above picture. Learner is running on the main OS and Actor is running on the on docker OS. Communication between the Learner and the actor is done via ZMQ package of Python. The Learner first is pretrained using human demonstration data. After this work is finished, the Actor start to send the agent data acquired in the environment to the Learner. The number of agent data become larger as training progresses. 
+
+The code related to this algorithm is be located at [here](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
 
 <a name="generative_adversarial_network"></a>
 ## Generative Adversarial Network
