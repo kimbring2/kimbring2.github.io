@@ -509,7 +509,7 @@ After making DeepSoccer in Openai Gym format, you can use it for training robot 
 
 In addition, it is often difficult to reach the performance of what we want to get only by using Supervised Learning. Therefore, it is necessary to train more using Reinforcement Learning. Currently, it is common to use a multiple environment together for trarning speed such as "Distributed Prioritized Experience Replay". However, in the case of ROS Gazebo, only one environment can be generated for one OS. Hence, it is necessary to use virtualization technique such as Docker to run multiple environments in one PC.
 
-<img src="/assets/rl_model_architecture.png" width="600">
+<img src="/assets/rl_model_architecture.png" width="800">
 
 The structure of the proposed model is like a above picture. Learner is running on the main OS and Actor is running on the on docker OS. Communication between the Learner and the actor is done via ZMQ package of Python. The Learner first is pretrained using human demonstration data. After this work is finished, the Actor start to send the agent data acquired in the environment to the Learner. The number of agent data become larger as training progresses. 
 
