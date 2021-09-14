@@ -600,7 +600,7 @@ def gstreamer_pipeline(
     )
 
 cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
-if cap.isOpened() != 1:
+if cap.isOpened() != False:
     ret, frame = cap.read()
     img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
             
