@@ -566,7 +566,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-imported_seg = tf.saved_model.load("/home/[your Jetson Nano user name]/segmentation_model_official")
+imported_seg = tf.saved_model.load("/home/[your Jetson Nano user name]/seg_model")
 f_seg = imported_seg.signatures["serving_default"]
 seg_test_input = np.zeros([1,256,256,3])
 seg_test_tensor = tf.convert_to_tensor(seg_test_input, dtype=tf.float32)
@@ -670,7 +670,7 @@ gan_video_out = cv2.VideoWriter(path_gen_video, cv2.VideoWriter_fourcc(*'DIVX'),
 
 imported_rl = tf.saved_model.load("/home/kimbring2/Desktop/rl_model")
 imported_seg = tf.saved_model.load("/home/kimbring2/Desktop/seg_model")
-imported_gan = tf.saved_model.load("/home/kimbring2/Desktop/cyclegan_model")
+imported_gan = tf.saved_model.load("/home/kimbring2/Desktop/gan_model")
 
 f_rl = imported_rl.signatures["serving_default"]
 f_seg = imported_seg.signatures["serving_default"]
