@@ -693,7 +693,9 @@ The method using CycleGAN trains a model by dataset of real and simulation world
 
 <a name="integration_three_network"></a>
 ## Intergration Three Network
+If the camera image of the real robot is converted to image of simulation through Segmentation and Generation network, it would be good to use the robot control network trained in simulation.
 
+<img src="/assets/network_architecture_real.png" width="600">
 
 ```
 #!/usr/bin/env python3
